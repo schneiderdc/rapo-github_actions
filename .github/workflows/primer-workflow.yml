@@ -1,1 +1,25 @@
+name: Mi primer GitHub Actions
 
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  primer-trabajo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Hola desde GitHub Actions"
+
+      - name: Descargar codigo
+        uses: actions/checkout@v6
+
+      - name: Mostrar archivos
+        run: ls -la
+
+      - name: Finalizar
+        run: echo "Workflow ejecutado correctamente"
